@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GCS MAD Activivity</string>
+    <string name="title_activity_secon">Secon</string>
+    <string name="title_activity_third">ThirdActivity</string>
 </resources>
