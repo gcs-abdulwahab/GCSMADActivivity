@@ -2,68 +2,61 @@ package com.example.gcsmadactivivity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
 import com.example.gcsmadactivivity.ui.theme.GCSMADActivivityTheme
+import models.Contact
 
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-
-//   list /       collection of 5 answers
-        val answers = listOf(
-            Answer(sum(5, 4), "Answer   ${sum(5, 4)}     "),
-            Answer(2, "Answer 2"),
-            Answer(3, "Answer 3"),
-            Answer(4, "Answer 4"),
-            Answer(5, "Answer 5"),
-            Answer(3, "Answer 3"),
-            Answer(4, "Answer 4"),
-            Answer(5, "Answer 5"),
-            Answer(3, "Answer 3"),
-            Answer(4, "Answer 4"),
-            Answer(5, "Answer 5")
-        )
-
+//        enableEdgeToEdge()
 
         setContent {
             GCSMADActivivityTheme {
-//  scaffold in such a way that  greetings are vertically stacked
-
                 Scaffold(
-                    contentColor = Color.Red,
-
+                    contentColor = MaterialTheme.colorScheme.primary,
                     content = {
-                        Column(
-                            modifier = Modifier.fillMaxSize()
-                        ) {
-
-//                            for each answers   create a SurveyAnswer
-                            answers.forEach { answer ->
-                                SurveyAnswer(answer)
+                        val contacts = Contact.contacts
+                        LazyColumn {
+                            items(contacts) { contact ->
+                                ContactItem(contact = contact)
                             }
 
-//                            SurveyAnswer(Answer(sum(5, 4), "Answer   ${sum(5, 4)}     "))
-//                            SurveyAnswer(Answer(2, "Answer 2"))
-//                            SurveyAnswer(Answer(3, "Answer 3"))
-//                            SurveyAnswer(Answer(4, "Answer 4"))
-
                         }
+
+
                     }
                 )
 
@@ -74,43 +67,67 @@ class MainActivity : ComponentActivity() {
 }
 
 
-data class Answer(val id: Int, val answer: String)
-
-
-fun sum(a: Int, b: Int): Int {
-    return a + b
-}
-
-
 @Composable
-fun SurveyAnswer(answer: Answer) {
-    Row(
-        modifier = Modifier.padding(16.dp)
-        //        add a little space between each row element
+fun ContactItem(contact: Contact) {
 
-    ) {
-        Text(text = answer.id.toString())
-        Text(text = answer.answer)
-    }
-}
-
-
-@Composable
-fun Greeting(fname: String = "User", modifier: Modifier = Modifier) {
 
     Row(
-        modifier = modifier.padding(16.dp)
+        modifier = Modifier
+            .padding(8.dp)
+            .background(Color.Red)
+            .fillMaxWidth(),
+        verticalAlignment = CenterVertically
     ) {
-        Text(text = "Hello, $fname!")
+        Image(
+            painter = painterResource(id = R.drawable.profile),
+            contentDescription = "Contact Image"
+        )
+
+        Column {
+            Text(text = contact.id.toString(), style = MaterialTheme.typography.titleLarge)
+            Spacer(modifier = Modifier.height(4.dp))
+            Text(text = contact.name, style = MaterialTheme.typography.titleLarge)
+        }
+//       Add Button for detail and this should be on the right of the row
+        Spacer(modifier = Modifier.weight(1f))
+        Button(
+            onClick = {
+
+                Log.d("Contact Detail", "Contact Detail Clicked")
+
+
+            }, modifier = Modifier
+                .width(100.dp)
+                .height(50.dp)
+        ) {
+            Text(text = "Detail")
+        }
     }
 
 
 }
 
-@Preview(showBackground = true)
+@Preview
+@Composable
+fun ContactItemPreview() {
+
+
+    ContactItem(contact = Contact(1, "Default", imageUrl = "https://picsum.photos/200/300"))
+
+
+}
+
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun GreetingPreview() {
     GCSMADActivivityTheme {
-        SurveyAnswer(Answer(1, "Answer 1"))
+        val contacts = Contact.contacts
+        LazyColumn {
+            items(contacts.size) { index ->
+                ContactItem(contact = contacts[index])
+            }
+
+        }
+
     }
 }
