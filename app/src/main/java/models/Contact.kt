@@ -1,12 +1,15 @@
 package models
 
-data class Contact(val id: Int, val name: String, val imageUrl: String) {
+import kotlin.random.Random
+
+data class Contact(val id: Int, val name: String, val imageUrl: String, var balance: Int = 0) {
     companion object {
         val contacts = (1..11515).map {
             Contact(
                 it,
                 "Name $it",
-                "https://picsum.photos/200/300"
+                balance = Random.nextInt(from = 10, 1000),
+                imageUrl = "https://picsum.photos/200/300"
             )
         }
 
