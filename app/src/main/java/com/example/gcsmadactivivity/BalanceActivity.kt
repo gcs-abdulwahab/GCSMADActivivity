@@ -11,6 +11,10 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -23,7 +27,14 @@ class BalanceActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             GCSMADActivivityTheme {
-
+                BalanceCard(
+                    contact = Contact(
+                        1,
+                        "Default",
+                        imageUrl = "https://picsum.photos/200/300",
+                        balance = 800
+                    )
+                )
 
             }
         }
@@ -33,17 +44,23 @@ class BalanceActivity : ComponentActivity() {
 @Composable
 fun BalanceCard(contact: Contact, modifier: Modifier = Modifier) {
 
+    var balanceAmount by remember { mutableStateOf(contact.balance) }
+
     Column {
         Text(
             text = "Name: ${contact.name}", modifier = Modifier.padding(16.dp)
         )
         Text(
-            text = "Balance: ${contact.balance}", modifier = Modifier.padding(16.dp)
+            text = "Balance: ${balanceAmount}", modifier = Modifier.padding(16.dp)
         )
-        Button(onClick = { /*TODO*/ }, modifier = Modifier.padding(16.dp, bottom = 0.dp)) {
+        Button(onClick = {
+            balanceAmount += 1
+        }, modifier = Modifier.padding(16.dp, bottom = 0.dp)) {
             Text(text = "Increment")
         }
-        Button(onClick = { /*TODO*/ }, modifier = Modifier.padding(16.dp)) {
+        Button(onClick = {
+            balanceAmount -= 1
+        }, modifier = Modifier.padding(16.dp)) {
             Text(text = "Decrement")
         }
 
