@@ -35,7 +35,6 @@ class BalanceActivity : ComponentActivity() {
                         balance = 800
                     )
                 )
-
             }
         }
     }
