@@ -99,9 +99,8 @@ fun ItemListPreview() {
 
 }
 
-@Preview
+@Preview (widthDp = 800, heightDp = 100)
 @Composable
 fun DefaultPreview() {
-
     Item(Contact(1, "Default"))
 }
