@@ -33,7 +33,14 @@ class SourceActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Button(onClick = { /*TODO*/ }) {
+    Button(onClick = {
+
+        
+
+
+
+
+    }) {
         Text(text = "Send")
     }
 }

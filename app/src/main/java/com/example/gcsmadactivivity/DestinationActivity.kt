@@ -21,7 +21,7 @@ class DestinationActivity : ComponentActivity() {
             GCSMADActivivityTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting2(
-                        name = "Android",
+                        name = "Android Destination",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
