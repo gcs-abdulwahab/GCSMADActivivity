@@ -1,10 +1,12 @@
 package com.example.gcsmadactivivity
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,6 +17,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -23,14 +26,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.gcsmadactivivity.ui.theme.GCSMADActivivityTheme
+import kotlin.random.Random
 
 class FigmaListActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +45,7 @@ class FigmaListActivity : ComponentActivity() {
         setContent {
             GCSMADActivivityTheme {
 
-
+                Item(Contact(1, "Default"))
             }
         }
     }
@@ -48,8 +54,12 @@ class FigmaListActivity : ComponentActivity() {
 @Composable
 fun Item(contact: Contact) {
     var isChecked by remember { mutableStateOf(false) }
+
     Row(
-        verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()
+        verticalAlignment = Alignment.CenterVertically, modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 2.dp)
+
 
     ) {
         Image(
@@ -64,9 +74,15 @@ fun Item(contact: Contact) {
         Text(
             text = contact.name,
             color = MaterialTheme.colorScheme.onSurface,
-            style = MaterialTheme.typography.displaySmall,
+            style = MaterialTheme.typography.bodySmall,
+
+            )
+        Text(
+            text = contact.id.toString(),
+            color = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier.padding(16.dp)
         )
+    
         Spacer(modifier = Modifier.weight(1f))
         Checkbox(
             checked = isChecked, onCheckedChange = {
@@ -99,7 +115,7 @@ fun ItemListPreview() {
 
 }
 
-@Preview (widthDp = 800, heightDp = 100)
+@Preview(heightDp = 100)
 @Composable
 fun DefaultPreview() {
     Item(Contact(1, "Default"))

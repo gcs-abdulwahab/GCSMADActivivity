@@ -13,6 +13,28 @@
         android:theme="@style/Theme.GCSMADActivivity"
         tools:targetApi="31">
         <activity
+            android:name=".ReceivingActivity"
+            android:exported="true"
+            android:label="@string/title_activity_receiving"
+            android:theme="@style/Theme.GCSMADActivivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".IntentActivity"
+            android:exported="true"
+            android:label="@string/title_activity_intent"
+            android:theme="@style/Theme.GCSMADActivivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".FigmaListActivity"
             android:exported="true"
             android:label="@string/title_activity_figma_list"
