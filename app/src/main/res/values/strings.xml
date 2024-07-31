@@ -8,4 +8,5 @@
     <string name="title_activity_figma_list">FigmaListActivity</string>
     <string name="title_activity_intent">IntentActivity</string>
     <string name="title_activity_receiving">ReceivingActivity</string>
+    <string name="title_activity_disco">DiscoActivity</string>
 </resources>
