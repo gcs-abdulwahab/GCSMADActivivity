@@ -1,6 +1,7 @@
 package com.example.gcsmadactivivity
 
 import android.content.Intent
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -21,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.graphics.ColorUtils
 import coil.compose.AsyncImage
 import com.example.gcsmadactivivity.ui.theme.GCSMADActivivityTheme
 
@@ -62,11 +64,15 @@ fun ChangeColor() {
             Text(text = "Change Color")
         }
         Button(onClick = {
-            val intent = Intent(context, ThirdActivity::class.java)
-            // send color to the next activity
-            intent.putExtra("color", randomcolor.value.toString())
-            intent.putExtra("name", "Assignment ")
-            context.startActivity(intent)
+
+            Intent(context, ReceivingActivity::class.java).also {
+               it.putExtra("name", "Ansar")
+                context.startActivity(it)
+            }
+
+
+
+
         }) {
             Text(text = "Send")
         }
@@ -76,7 +82,15 @@ fun ChangeColor() {
             contentDescription = "Image",
         )
 
+        testColor ()
+
     }
+}
+
+fun testColor() {
+
+    val color = Color.Red
+
 }
 
 @Preview()

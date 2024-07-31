@@ -1,5 +1,6 @@
 package com.example.gcsmadactivivity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -32,11 +33,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.gcsmadactivivity.ui.theme.GCSMADActivivityTheme
 import kotlin.random.Random
+
+val TAG = "FigmaActivity"
 
 class FigmaListActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +49,7 @@ class FigmaListActivity : ComponentActivity() {
         setContent {
             GCSMADActivivityTheme {
 
-                Item(Contact(1, "Default"))
+                ItemList()
             }
         }
     }
@@ -54,6 +58,7 @@ class FigmaListActivity : ComponentActivity() {
 @Composable
 fun Item(contact: Contact) {
     var isChecked by remember { mutableStateOf(false) }
+    val mycontact by remember { mutableStateOf(contact) }
 
     Row(
         verticalAlignment = Alignment.CenterVertically, modifier = Modifier
@@ -82,7 +87,7 @@ fun Item(contact: Contact) {
             color = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier.padding(16.dp)
         )
-    
+
         Spacer(modifier = Modifier.weight(1f))
         Checkbox(
             checked = isChecked, onCheckedChange = {
@@ -90,6 +95,18 @@ fun Item(contact: Contact) {
             }, modifier = Modifier.padding(16.dp)
 
         )
+        val context = LocalContext.current
+        Button(onClick = {
+            Intent(context, DetailItemActivity::class.java).also {
+                context.startActivity(it)
+
+                Log.d("Detail Item", "Detail Item Clicked")
+
+            }
+
+        }) {
+            Text(text = "Go")
+        }
 
 
     }
