@@ -30,6 +30,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.gcsmadactivivity.models.Contact
 import com.example.gcsmadactivivity.ui.theme.GCSMADActivivityTheme
 
 class FigmaListActivity : ComponentActivity() {
@@ -102,5 +103,5 @@ fun ItemListPreview() {
 @Preview (widthDp = 800, heightDp = 100)
 @Composable
 fun DefaultPreview() {
-    Item(Contact(1, "Default"))
+    Item(Contact(id = 1,name = "Default"))
 }

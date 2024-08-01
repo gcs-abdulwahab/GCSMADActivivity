@@ -8,4 +8,5 @@
     <string name="title_activity_figma_list">FigmaListActivity</string>
     <string name="title_activity_source">SourceActivity</string>
     <string name="title_activity_destination">DestinationActivity</string>
+    <string name="title_activity_hood_lab">HoodLabActivity</string>
 </resources>
