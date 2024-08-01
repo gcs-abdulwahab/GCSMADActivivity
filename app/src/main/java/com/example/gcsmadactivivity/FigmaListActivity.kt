@@ -46,7 +46,7 @@ class FigmaListActivity : ComponentActivity() {
         setContent {
             GCSMADActivivityTheme {
 
-                Item(Contact(1, "Default"))
+
             }
         }
     }
