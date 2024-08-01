@@ -13,25 +13,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.gcsmadactivivity.ui.theme.GCSMADActivivityTheme
 
-class DestinationActivity : ComponentActivity() {
+class ReceivingActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             GCSMADActivivityTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting2(
-                        name = "Android Destination",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+
             }
         }
     }
 }
 
 @Composable
-fun Greeting2(name: String, modifier: Modifier = Modifier) {
+fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
         text = "Hello $name!",
         modifier = modifier
@@ -40,8 +35,8 @@ fun Greeting2(name: String, modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview4() {
+fun GreetingPreview2() {
     GCSMADActivivityTheme {
-        Greeting2("Android")
+        Greeting("Android")
     }
 }

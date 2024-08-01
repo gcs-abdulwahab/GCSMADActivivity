@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,10 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GCSMADActivivity"
         tools:targetApi="31">
+
         <activity
-            android:name=".HoodLabActivity"
+            android:name=".DiscoActivity"
             android:exported="true"
-            android:label="@string/title_activity_hood_lab"
+            android:label="@string/title_activity_disco"
             android:theme="@style/Theme.GCSMADActivivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,9 +25,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DestinationActivity"
+            android:name=".ReceivingActivity"
             android:exported="true"
-            android:label="@string/title_activity_destination"
+            android:label="@string/title_activity_receiving"
             android:theme="@style/Theme.GCSMADActivivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,9 +36,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SourceActivity"
+            android:name=".IntentActivity"
             android:exported="true"
-            android:label="@string/title_activity_source"
+            android:label="@string/title_activity_intent"
             android:theme="@style/Theme.GCSMADActivivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

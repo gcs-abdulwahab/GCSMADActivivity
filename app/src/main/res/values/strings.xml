@@ -6,7 +6,7 @@
     <string name="title_activity_balance">BalanceActivity</string>
     <string name="title_activity_tip">TipActivity</string>
     <string name="title_activity_figma_list">FigmaListActivity</string>
-    <string name="title_activity_source">SourceActivity</string>
-    <string name="title_activity_destination">DestinationActivity</string>
-    <string name="title_activity_hood_lab">HoodLabActivity</string>
+    <string name="title_activity_intent">IntentActivity</string>
+    <string name="title_activity_receiving">ReceivingActivity</string>
+    <string name="title_activity_disco">DiscoActivity</string>
 </resources>
