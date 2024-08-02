@@ -4,13 +4,28 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.gcsmadactivivity.ui.theme.GCSMADActivivityTheme
 
 class WeatherActivity : ComponentActivity() {
@@ -19,29 +34,135 @@ class WeatherActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             GCSMADActivivityTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting2(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+
+                WeatherScreen()
             }
         }
     }
 }
 
+
 @Composable
-fun Greeting2(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun WeatherScreen() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+
+    ) {
+
+        WeatherHeader()
+        WeatherCity()
+       WeatherStats()
+
+    }
+
 }
 
-@Preview(showBackground = true)
 @Composable
-fun GreetingPreview4() {
+fun WeatherStats() {
+    Column(
+        Modifier
+            .background(color = androidx.compose.ui.graphics.Color.Yellow)
+            .padding(vertical = 2.dp), verticalArrangement = Arrangement.Center
+
+
+    ) {
+        (1..4).map {
+            Row(
+                Modifier
+                    .background(color = androidx.compose.ui.graphics.Color.Cyan)
+                    .fillMaxWidth()
+                    .padding(8.dp)
+            ) {
+                Text(
+                    text = "Temperature",
+                    fontSize = 30.sp,
+                    modifier = Modifier.padding(8.dp),
+
+                    )
+                Spacer(Modifier.weight(1f))
+                Text(
+                    text = "32",
+                    fontSize = 30.sp,
+                    modifier = Modifier.padding(8.dp)
+
+                )
+            }
+            Spacer(modifier = Modifier.height(8.dp))
+        }
+    }
+}
+
+@Preview(showBackground = true, widthDp = 400, heightDp = 400)
+@Composable
+fun WeatherStatsPreview() {
     GCSMADActivivityTheme {
-        Greeting2("Android")
+
+        WeatherStats()
+    }
+}
+
+@Preview(showBackground = true, widthDp = 400 )
+@Composable
+fun WeatherHeaderPreview() {
+    GCSMADActivivityTheme {
+        WeatherHeader()
+
+    }
+}
+
+
+@Composable
+fun WeatherCity() {
+    Row (modifier = Modifier.fillMaxWidth().background(color = Color.Blue)) {
+        Column(
+            modifier = Modifier
+                .background(color = Color.Green)
+                .padding(8.dp)
+
+        ) {
+            Text(text = "City", fontSize = 50.sp , style =  MaterialTheme.typography.labelMedium )
+            Text(text = "Country", fontSize = 30.sp)
+        }
+        Spacer(modifier = Modifier.weight(1f))
+        Image(painter = painterResource(id = R.drawable.ansar), contentDescription = "Logo" , Modifier.size(100.dp))
+    }
+}
+@Preview(showBackground = true, widthDp = 400)
+@Composable
+fun WeatherCityPreview() {
+    GCSMADActivivityTheme {
+        WeatherCity()
+    }
+}
+
+
+
+@Composable
+fun WeatherHeader() {
+    Row (
+        modifier = Modifier
+            .background(color = androidx.compose.ui.graphics.Color.Red)
+            .fillMaxWidth()
+            .padding(8.dp)
+            , verticalAlignment = Alignment.CenterVertically
+    ) {
+      Image(painter = painterResource(id = R.drawable.ansar), contentDescription = "Logo" , Modifier.size(100.dp))
+         Text(text = "Weather", fontSize = 30.sp)
+        Spacer(modifier = Modifier.weight(1f))
+        Image(painter = painterResource(id = R.drawable.ansar), contentDescription = "Logo" , Modifier.size(75.dp))
+        Image(painter = painterResource(id = R.drawable.ansar), contentDescription = "Logo" , Modifier.size(75.dp))
+
+
+    }
+
+}
+
+@Composable
+@Preview(showBackground = true)
+fun WeatherScreenPreview() {
+    GCSMADActivivityTheme {
+        WeatherScreen()
     }
 }
