@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,6 +25,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.gcsmadactivivity.models.Weather
 import com.example.gcsmadactivivity.ui.theme.GCSMADActivivityTheme
 
 class WeatherActivity : ComponentActivity() {
@@ -51,16 +51,18 @@ fun WeatherScreen() {
 
     ) {
 
+        val weatherData = Weather()
+
         WeatherHeader()
         WeatherCity()
-       WeatherStats()
+        WeatherStats (weatherData)
 
     }
 
 }
 
 @Composable
-fun WeatherStats() {
+fun WeatherStats(weatherData: Weather) {
     Column(
         Modifier
             .background(color = androidx.compose.ui.graphics.Color.Yellow)
@@ -68,22 +70,33 @@ fun WeatherStats() {
 
 
     ) {
-        (1..4).map {
+
+//        // make a collection with key and value pairs
+//
+//        val stats =
+//            listOf( ("Temperature" to weatherData.temp),
+//                ("Rain" to weatherData.rain),
+//                ("Wind" to weatherData.wind),
+//                ("UV" to weatherData.uv)
+//            )
+
+
+        Weather().stats.forEach { (key, value) ->
             Row(
                 Modifier
-                    .background(color = androidx.compose.ui.graphics.Color.Cyan)
+                    .background(color = Color.Cyan)
                     .fillMaxWidth()
                     .padding(8.dp)
             ) {
                 Text(
-                    text = "Temperature",
+                    text = key,
                     fontSize = 30.sp,
                     modifier = Modifier.padding(8.dp),
 
                     )
                 Spacer(Modifier.weight(1f))
                 Text(
-                    text = "32",
+                    text = "$value",
                     fontSize = 30.sp,
                     modifier = Modifier.padding(8.dp)
 
@@ -99,11 +112,11 @@ fun WeatherStats() {
 fun WeatherStatsPreview() {
     GCSMADActivivityTheme {
 
-        WeatherStats()
+        WeatherStats(Weather())
     }
 }
 
-@Preview(showBackground = true, widthDp = 400 )
+@Preview(showBackground = true, widthDp = 400)
 @Composable
 fun WeatherHeaderPreview() {
     GCSMADActivivityTheme {
@@ -115,20 +128,29 @@ fun WeatherHeaderPreview() {
 
 @Composable
 fun WeatherCity() {
-    Row (modifier = Modifier.fillMaxWidth().background(color = Color.Blue)) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(color = Color.Blue)
+    ) {
         Column(
             modifier = Modifier
                 .background(color = Color.Green)
                 .padding(8.dp)
 
         ) {
-            Text(text = "City", fontSize = 50.sp , style =  MaterialTheme.typography.labelMedium )
+            Text(text = "City", fontSize = 50.sp, style = MaterialTheme.typography.labelMedium)
             Text(text = "Country", fontSize = 30.sp)
         }
         Spacer(modifier = Modifier.weight(1f))
-        Image(painter = painterResource(id = R.drawable.ansar), contentDescription = "Logo" , Modifier.size(100.dp))
+        Image(
+            painter = painterResource(id = R.drawable.ansar),
+            contentDescription = "Logo",
+            Modifier.size(100.dp)
+        )
     }
 }
+
 @Preview(showBackground = true, widthDp = 400)
 @Composable
 fun WeatherCityPreview() {
@@ -138,21 +160,31 @@ fun WeatherCityPreview() {
 }
 
 
-
 @Composable
 fun WeatherHeader() {
-    Row (
+    Row(
         modifier = Modifier
             .background(color = androidx.compose.ui.graphics.Color.Red)
             .fillMaxWidth()
-            .padding(8.dp)
-            , verticalAlignment = Alignment.CenterVertically
+            .padding(8.dp), verticalAlignment = Alignment.CenterVertically
     ) {
-      Image(painter = painterResource(id = R.drawable.ansar), contentDescription = "Logo" , Modifier.size(100.dp))
-         Text(text = "Weather", fontSize = 30.sp)
+        Image(
+            painter = painterResource(id = R.drawable.ansar),
+            contentDescription = "Logo",
+            Modifier.size(100.dp)
+        )
+        Text(text = "Weather", fontSize = 30.sp)
         Spacer(modifier = Modifier.weight(1f))
-        Image(painter = painterResource(id = R.drawable.ansar), contentDescription = "Logo" , Modifier.size(75.dp))
-        Image(painter = painterResource(id = R.drawable.ansar), contentDescription = "Logo" , Modifier.size(75.dp))
+        Image(
+            painter = painterResource(id = R.drawable.ansar),
+            contentDescription = "Logo",
+            Modifier.size(75.dp)
+        )
+        Image(
+            painter = painterResource(id = R.drawable.ansar),
+            contentDescription = "Logo",
+            Modifier.size(75.dp)
+        )
 
 
     }
