@@ -37,6 +37,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.gcsmadactivivity.models.Contact
 import com.example.gcsmadactivivity.ui.theme.GCSMADActivivityTheme
 import kotlin.random.Random
 
@@ -49,7 +50,11 @@ class FigmaListActivity : ComponentActivity() {
         setContent {
             GCSMADActivivityTheme {
 
+<<<<<<< HEAD
                 ItemList()
+=======
+
+>>>>>>> 94a07268227e5a4a75780b490d741b6a10086d01
             }
         }
     }
@@ -135,5 +140,5 @@ fun ItemListPreview() {
 @Preview(heightDp = 100)
 @Composable
 fun DefaultPreview() {
-    Item(Contact(1, "Default"))
+    Item(Contact(id = 1,name = "Default"))
 }

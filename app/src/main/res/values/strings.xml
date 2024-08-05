@@ -9,6 +9,10 @@
     <string name="title_activity_intent">IntentActivity</string>
     <string name="title_activity_receiving">ReceivingActivity</string>
     <string name="title_activity_disco">DiscoActivity</string>
+<<<<<<< HEAD
     <string name="title_activity_detail_item">DetailItemActivity</string>
     <string name="title_activity_nav">NavActivity</string>
+=======
+    <string name="title_activity_weather">WeatherActivity</string>
+>>>>>>> 94a07268227e5a4a75780b490d741b6a10086d01
 </resources>
