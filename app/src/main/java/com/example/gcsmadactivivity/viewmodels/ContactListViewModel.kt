@@ -7,7 +7,6 @@ import models.Contact
 class ContactListViewModel : ViewModel() {
 
     var contacts = MutableStateFlow(Contact.contacts)
-        private set
 
 
     fun addContact(contact: Contact) {
