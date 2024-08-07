@@ -15,15 +15,10 @@
         android:theme="@style/Theme.GCSMADActivivity"
         tools:targetApi="31">
         <activity
-<<<<<<< Updated upstream
-            android:name=".DemoScaffold2Activity"
-            android:exported="true"
-            android:label="@string/title_activity_demo_scaffold2"
-=======
+
             android:name=".MyViewModelActivity"
             android:exported="true"
             android:label="@string/title_activity_my_view_model"
->>>>>>> Stashed changes
             android:theme="@style/Theme.GCSMADActivivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,29 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< Updated upstream
-        <activity
-            android:name=".DemoScaffoldActivity"
-            android:exported="true"
-            android:label="@string/title_activity_demo_scaffold"
-            android:theme="@style/Theme.GCSMADActivivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".GCSScaffoldActivity"
-            android:exported="true"
-            android:label="@string/title_activity_gcsscaffold"
-            android:theme="@style/Theme.GCSMADActivivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".DetailItemActivity"
             android:exported="true"
@@ -65,8 +38,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-=======
->>>>>>> Stashed changes
+
         <activity
             android:name=".DiscoActivity"
             android:exported="true"
@@ -111,17 +83,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".FigmaListActivity"
-            android:exported="true"
-            android:label="@string/title_activity_figma_list"
-            android:theme="@style/Theme.GCSMADActivivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".TipActivity"
             android:exported="true"
@@ -180,7 +142,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.GCSMADActivivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

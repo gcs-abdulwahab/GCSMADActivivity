@@ -12,6 +12,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -43,14 +44,14 @@ class BalanceActivity : ComponentActivity() {
 @Composable
 fun BalanceCard(contact: Contact, modifier: Modifier = Modifier) {
 
-    var balanceAmount by remember { mutableStateOf(contact.balance) }
+    var balanceAmount by remember { mutableIntStateOf(contact.balance) }
 
     Column {
         Text(
             text = "Name: ${contact.name}", modifier = Modifier.padding(16.dp)
         )
         Text(
-            text = "Balance: ${balanceAmount}", modifier = Modifier.padding(16.dp)
+            text = "Balance: $balanceAmount", modifier = Modifier.padding(16.dp)
         )
         Button(onClick = {
             balanceAmount += 1

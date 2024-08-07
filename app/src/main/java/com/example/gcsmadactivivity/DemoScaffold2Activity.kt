@@ -46,7 +46,7 @@ fun ScaffoldScreen(modifier: Modifier = Modifier) {
             Text(text = "FloatingActionButton")
         }
 
-                modifier = Modifier.fillMaxSize()
+
     ) { innerPadding ->
 
         Column(modifier = Modifier.padding(innerPadding)) {

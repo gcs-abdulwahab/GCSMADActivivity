@@ -68,13 +68,13 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-<<<<<<< Updated upstream
+
     implementation("io.coil-kt:coil-compose:2.6.0")
-=======
+
     implementation(libs.coil.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.runtime.livedata)
-  
+
 
     // ViewModel
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
@@ -89,7 +89,6 @@ dependencies {
 
     // Saved state module for ViewModel
     implementation(libs.androidx.lifecycle.viewmodel.savedstate)
->>>>>>> Stashed changes
 
 
 }
