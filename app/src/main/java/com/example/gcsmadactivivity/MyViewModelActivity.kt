@@ -1,5 +1,6 @@
 package com.example.gcsmadactivivity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -24,6 +25,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -69,12 +71,21 @@ fun ColorChanger() {
     val composeColor = viewModel.composeColor
     val flowColor by viewModel.selectColor.collectAsState()
 
+    val context = LocalContext.current
+
     Box(
         modifier = Modifier
             .background(flowColor)
             .fillMaxSize()
             .clickable {
-                viewModel.generateNewColor()
+                //viewModel.generateNewColor()
+
+
+                Intent(context, BalanceActivity::class.java).also {
+                    context.startActivity(it)
+                }
+
+
             },
 
         )
