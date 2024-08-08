@@ -19,5 +19,8 @@
 
 
     <string name="title_activity_my_view_model">MyViewModelActivity</string>
+    <string name="title_activity_weather_aiactivity">WeatherAIActivity</string>
+    <string name="title_activity_aiweather">AIWeatherActivity</string>
+    <string name="title_activity_base">BaseActivity</string>
 
 </resources>
