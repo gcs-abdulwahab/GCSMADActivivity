@@ -55,56 +55,51 @@ fun WeatherScreen() {
 
         WeatherHeader()
         WeatherCity()
-        WeatherStats (weatherData)
+//        WeatherStatsList (weatherData)
 
     }
 
 }
 
 @Composable
-fun WeatherStats(weatherData: Weather) {
+fun WeatherStatsList(weatherData: Weather) {
     Column(
         Modifier
-            .background(color = androidx.compose.ui.graphics.Color.Yellow)
+            .background(color = Color.Yellow)
             .padding(vertical = 2.dp), verticalArrangement = Arrangement.Center
-
-
     ) {
 
-//        // make a collection with key and value pairs
-//
-//        val stats =
-//            listOf( ("Temperature" to weatherData.temp),
-//                ("Rain" to weatherData.rain),
-//                ("Wind" to weatherData.wind),
-//                ("UV" to weatherData.uv)
-//            )
-
-
-        Weather().stats.forEach { (key, value) ->
-            Row(
-                Modifier
-                    .background(color = Color.Cyan)
-                    .fillMaxWidth()
-                    .padding(8.dp)
-            ) {
-                Text(
-                    text = key,
-                    fontSize = 30.sp,
-                    modifier = Modifier.padding(8.dp),
-
-                    )
-                Spacer(Modifier.weight(1f))
-                Text(
-                    text = "$value",
-                    fontSize = 30.sp,
-                    modifier = Modifier.padding(8.dp)
-
-                )
+            weatherData.stats.forEach { (key, value) ->
+                WeatherStatsRow(key, value)
             }
-            Spacer(modifier = Modifier.height(8.dp))
-        }
     }
+}
+
+@Composable
+fun WeatherStatsRow(key: String, value: String ) {
+    Row(
+        Modifier
+            .background(color = Color.Cyan)
+            .fillMaxWidth()
+            .padding(8.dp)
+    ) {
+        Text(
+            text = key,
+            fontSize = 30.sp,
+            modifier = Modifier.padding(8.dp),
+
+            )
+        Spacer(Modifier.weight(1f))
+        Text(
+            //text = "$value",
+            /// text should be the value and then the unit
+            text = value,
+            fontSize = 30.sp,
+            modifier = Modifier.padding(8.dp)
+
+        )
+    }
+    Spacer(modifier = Modifier.height(8.dp))
 }
 
 @Preview(showBackground = true, widthDp = 400, heightDp = 400)
@@ -112,7 +107,7 @@ fun WeatherStats(weatherData: Weather) {
 fun WeatherStatsPreview() {
     GCSMADActivivityTheme {
 
-        WeatherStats(Weather())
+        WeatherStatsList(Weather(temp = 32 , rain = 192 ))
     }
 }
 
@@ -164,7 +159,7 @@ fun WeatherCityPreview() {
 fun WeatherHeader() {
     Row(
         modifier = Modifier
-            .background(color = androidx.compose.ui.graphics.Color.Red)
+            .background(color = Color.Red)
             .fillMaxWidth()
             .padding(8.dp), verticalAlignment = Alignment.CenterVertically
     ) {

@@ -12,18 +12,14 @@ data class Weather(
 
 ) {
 
-
- // expose  temp , rain , wind , uv in a getter
-    val stats: List<Pair<String, Any>>
+    // expose  temp , rain , wind , uv in a getter
+    val stats: List<Pair<String, String >>
         get() = listOf(
-            "Temperature" to temp,
-            "Rain" to rain,
-            "Wind" to wind,
-            "UV" to uv
+            "Temperature" to "$temp C",
+            "Rain" to "$rain mm",
+            "Wind" to "$wind km/h",
+            "UV" to "$uv uv"
         )
-
-
-
 
 
 }
