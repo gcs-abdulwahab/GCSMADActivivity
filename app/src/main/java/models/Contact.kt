@@ -2,9 +2,9 @@ package models
 
 import kotlin.random.Random
 
-data class Contact(val id: Int, val name: String, val imageUrl: String, var balance: Int = 0) {
+data class Contact(val id: Int, val name: String, val imageUrl: String = "", var balance: Int = 0) {
     companion object {
-        val contacts = (1..11515).map {
+        val contacts = (1..10).map {
             Contact(
                 it,
                 "Name $it",

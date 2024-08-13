@@ -9,5 +9,18 @@
     <string name="title_activity_intent">IntentActivity</string>
     <string name="title_activity_receiving">ReceivingActivity</string>
     <string name="title_activity_disco">DiscoActivity</string>
+
+
     <string name="title_activity_weather">WeatherActivity</string>
+    <string name="title_activity_gcsscaffold">GCSScaffoldActivity</string>
+    <string name="title_activity_demo_scaffold">DemoScaffoldActivity</string>
+    <string name="title_activity_detail_item">DetailActivity</string>
+    <string name="title_activity_demo_scaffold2">DemoScaffold2Activity</string>
+
+
+    <string name="title_activity_my_view_model">MyViewModelActivity</string>
+    <string name="title_activity_weather_aiactivity">WeatherAIActivity</string>
+    <string name="title_activity_aiweather">AIWeatherActivity</string>
+    <string name="title_activity_base">BaseActivity</string>
+
 </resources>
