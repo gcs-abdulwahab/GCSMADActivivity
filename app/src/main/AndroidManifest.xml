@@ -15,6 +15,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GCSMADActivivity"
         tools:targetApi="31">
+
+
+        <activity
+            android:name=".BroadActivity"
+            android:exported="true"
+            android:label="@string/title_activity_broad"
+            android:theme="@style/Theme.GCSMADActivivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".BaseActivity"
             android:exported="true"
