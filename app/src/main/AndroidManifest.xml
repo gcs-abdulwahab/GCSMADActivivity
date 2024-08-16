@@ -4,6 +4,11 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+
     <application
         android:name=".MyApp"
         android:allowBackup="true"
@@ -13,15 +18,16 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GCSMADActivivity"
+        android:theme="@style/Theme.App.Starting"
         tools:targetApi="31">
+
 
 
         <activity
             android:name=".BroadActivity"
             android:exported="true"
             android:label="@string/title_activity_broad"
-            android:theme="@style/Theme.GCSMADActivivity">
+            android:theme="@style/Theme.App.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

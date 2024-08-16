@@ -50,6 +50,11 @@ android {
 }
 
 dependencies {
+
+    // For Splash Screen
+    implementation(libs.androidx.core.splashscreen)
+
+
     val lifecycle_version = "2.8.4"
     val arch_version = "2.2.0"
     implementation(libs.androidx.core.ktx)
@@ -69,7 +74,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
 
-    implementation("io.coil-kt:coil-compose:2.6.0")
+    implementation(libs.coil.compose.v260)
 
     implementation(libs.coil.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
