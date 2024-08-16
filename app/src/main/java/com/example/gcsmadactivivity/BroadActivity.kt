@@ -104,7 +104,7 @@ fun BroadScreen(modifier: Modifier = Modifier, viewModel: AirplaneModeViewModel 
             val isAirplaneModeOn by viewModel.isAirplaneModeOn.collectAsState()
             Log.d("BroadActivity", "isAirplaneModeOn: $isAirplaneModeOn")
             Text(text = "Airplane Mode: $isAirplaneModeOn")
-          
+
 
 
 //            AirPlaneModeText()

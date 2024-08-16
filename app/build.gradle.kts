@@ -95,5 +95,7 @@ dependencies {
     // Saved state module for ViewModel
     implementation(libs.androidx.lifecycle.viewmodel.savedstate)
 
+    implementation ("com.google.code.gson:gson:2.11.0")
+
 
 }
