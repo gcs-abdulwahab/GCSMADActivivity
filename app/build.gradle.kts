@@ -55,8 +55,6 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
 
 
-    val lifecycle_version = "2.8.4"
-    val arch_version = "2.2.0"
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -96,6 +94,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.savedstate)
 
     implementation ("com.google.code.gson:gson:2.11.0")
+
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
+    implementation("com.google.accompanist:accompanist-permissions:0.35.1-alpha")
 
 
 }

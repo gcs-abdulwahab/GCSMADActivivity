@@ -46,12 +46,12 @@ class ButtonActivity : ComponentActivity() {
         setContent {
             GCSMADActivivityTheme {
 
-               val contacts = Contact.contacts
-                LazyColumn {
-                    items(contacts) {
-                        VisitingCard(contact = it)
-                    }
-                }
+
+//                LazyColumn {
+//                    items(contacts) {
+//                        VisitingCard(contact = it)
+//                    }
+//                }
 
 
             }

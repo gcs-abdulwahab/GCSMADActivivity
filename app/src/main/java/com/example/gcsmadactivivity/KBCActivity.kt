@@ -29,6 +29,9 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.gcsmadactivivity.ui.theme.GCSMADActivivityTheme
 import com.google.gson.Gson
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.withContext
 import java.io.IOException
 import java.lang.Math.random
 import kotlin.random.Random
@@ -54,14 +57,15 @@ class KBCActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        val products = getProducts()
+
+
 
         setContent {
             GCSMADActivivityTheme {
 
                 Column {
                     Spacer(modifier = Modifier.size(40.dp))
-                    ProductList(products)
+                  //  ProductList(products)
                 }
 
 
@@ -69,40 +73,22 @@ class KBCActivity : ComponentActivity() {
         }
     }
 
-    private fun getProducts(): List<Product> {
 
-
-// ... inside your Activity
+    private suspend fun getProducts(): List<Product> = withContext(Dispatchers.IO) {
         val assetManager: AssetManager = assets
-        var products = emptyList<Product>()
 
         try {
-            val inputStream = assetManager.open("products.json")
-            // Process the inputStream (e.g., read JSON data)
-            // For example:
-            val jsonString = inputStream.bufferedReader().use { it.readText() }
-//            Log.d("TAGA", "getProducts: $jsonString")
-
-            // convert jsonString to List<Product> using GSON
-            // return the List<Product>
-            products = Gson().fromJson(jsonString, Array<Product>::class.java).toList()
-
-            Log.d("TAGA", "getProducts: ${products.size}")
-
-
-            return products
-
-
+            assetManager.open("products.json").bufferedReader().use { reader ->
+                val jsonString = reader.readText()
+                Gson().fromJson(jsonString, Array<Product>::class.java).toList()
+            }.also { products ->
+                Log.d("TAGA", "getProducts: ${products.size}")
+            }
         } catch (e: IOException) {
             // Handle the exception (e.g., log the error, display a message)
-            Log.d("TAGA", "getProducts: $e.message")
+            Log.d("TAGA", "getProducts: ${e.message}")
+            emptyList()
         }
-
-
-
-
-        return products
-
     }
 
 }

@@ -102,11 +102,11 @@ fun Card1(contact: Contact, modifier: Modifier = Modifier) {
 @Composable
 fun CarPreview() {
     LazyColumn {
-        items(Contact.contacts) { contact ->
-            Card1(contact = contact)
-            VerticalDivider()
-            Spacer(modifier = Modifier.height(4.dp))
-        }
+//        items(Contact.contacts) { contact ->
+//            Card1(contact = contact)
+//            VerticalDivider()
+//            Spacer(modifier = Modifier.height(4.dp))
+//        }
     }
 
 
